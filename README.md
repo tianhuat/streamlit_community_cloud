@@ -15,7 +15,7 @@ A Streamlit web application that provides a chat interface to interact with Open
 
 ### Prerequisites
 
-- Python 3.7 or higher
+- Python 3.12 or higher
 - OpenAI API key
 
 ### Installation
