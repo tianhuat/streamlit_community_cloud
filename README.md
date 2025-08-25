@@ -23,7 +23,7 @@ A Streamlit web application that provides a chat interface to interact with Open
 1. Clone or download this repository
 2. Navigate to the project directory:
    ```bash
-   cd 5_MLOps/Streamlit
+   cd Streamlit
    ```
 
 3. Install dependencies:
@@ -64,9 +64,9 @@ A Streamlit web application that provides a chat interface to interact with Open
 
 1. Go to [share.streamlit.io](https://share.streamlit.io)
 2. Sign in with your GitHub account
-3. Click "New app"
+3. Click "Create app"
 4. Select your repository and branch
-5. Set the main file path: `5_MLOps/Streamlit/app.py`
+5. Set the main file path: `app.py`
 6. Click "Deploy"
 
 ### Step 3: Configure Secrets
