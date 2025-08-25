@@ -75,7 +75,9 @@ A Streamlit web application that provides a chat interface to interact with Open
 
 ### Step 3: Configure Secrets
 
-Since you can't upload `.env` files to GitHub, you need to configure secrets during deployment:
+Since you can't upload `.env` files to GitHub, you need to configure secrets during deployment. **You only need to choose ONE of the following three methods (Method 1 is recommended):**
+
+**Important:** Always include double quotation marks (") around your API key value in TOML format.
 
 1. **During Deployment (Recommended):**
    - Click "Advanced settings" in the deployment form
@@ -87,12 +89,16 @@ Since you can't upload `.env` files to GitHub, you need to configure secrets dur
    - Click "Save" then "Deploy"
 
 2. **After Deployment (Alternative):**
-   - Go to your app settings in Streamlit Cloud Dashboard
-   - Click on "Secrets" in the sidebar
-   - Add your secrets in TOML format:
+   - Go to your deployed app's page in Streamlit Community Cloud
+   - Click the three dots menu (⋮) next to your app
+   - Select "Settings" from the dropdown menu
+   - In the App settings modal, click on the "Secrets" tab
+   - In the text area, add your API key in TOML format:
    ```toml
    OPENAI_API_KEY = "your_openai_api_key_here"
    ```
+   - Click "Save changes"
+   - Your app will automatically restart with the new secrets
 
 3. **Local Development (Optional):**
    - Create a file named `.streamlit/secrets.toml` (locally only, don't commit)
@@ -166,33 +172,3 @@ Streamlit/
 3. **Performance:**
    - Streaming responses improve perceived performance
    - Consider adding rate limiting for production use
-
-## Troubleshooting
-
-### Common Issues
-
-1. **API Key Not Working:**
-   - Verify your OpenAI API key is valid
-   - Check that you have sufficient credits
-   - Ensure the key has the correct permissions
-
-2. **App Not Deploying:**
-   - Check that all files are committed to GitHub
-   - Verify the file path in Streamlit Cloud settings
-   - Check the deployment logs for errors
-
-3. **Secrets Not Loading:**
-   - Ensure secrets are properly formatted in TOML
-   - Restart the app after adding secrets
-   - Check for typos in secret names
-
-### Getting Help
-
-- Check the Streamlit Community forum
-- Review OpenAI API documentation
-- Check the deployment logs in Streamlit Cloud
-
-## License
-
-This project is open source and available under the MIT License.
-
