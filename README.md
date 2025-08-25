@@ -42,7 +42,7 @@ A Streamlit web application that provides a chat interface to interact with Open
 
 5. Run the application:
    ```bash
-   streamlit run app.py
+   streamlit run streamlit_app.py
    ```
 
 6. Open your browser and go to `http://localhost:8501`
@@ -55,7 +55,7 @@ A Streamlit web application that provides a chat interface to interact with Open
    ```bash
    git add .
    git commit -m "Add Streamlit GPT-4o-mini chat app"
-   git push origin main
+   git push origin master
    ```
 
 2. **Important:** Never commit your `.env` file! The `.gitignore` file is configured to exclude it.
@@ -64,24 +64,37 @@ A Streamlit web application that provides a chat interface to interact with Open
 
 1. Go to [share.streamlit.io](https://share.streamlit.io)
 2. Sign in with your GitHub account
-3. Click "Create app"
-4. Select your repository and branch
-5. Set the main file path: `app.py`
+3. Click "Deploy a public app from GitHub"
+4. Fill in the deployment form:
+   - **Repository:** Select your GitHub repository (e.g., `username/streamlit_community_cloud`)
+   - **Branch:** `master`
+   - **Main file path:** `streamlit_app.py`
+   - **App URL (optional):** Leave as default or customize
+5. Click "Advanced settings" if you need to configure additional options
 6. Click "Deploy"
 
 ### Step 3: Configure Secrets
 
-Since you can't upload `.env` files to GitHub, you need to configure secrets in Streamlit Cloud:
+Since you can't upload `.env` files to GitHub, you need to configure secrets during deployment:
 
-1. **In Streamlit Cloud Dashboard:**
-   - Go to your app settings
+1. **During Deployment (Recommended):**
+   - Click "Advanced settings" in the deployment form
+   - Set **Python version** to `3.12`
+   - In the **Secrets** section, add your API key in TOML format:
+   ```toml
+   OPENAI_API_KEY = "your_openai_api_key_here"
+   ```
+   - Click "Save" then "Deploy"
+
+2. **After Deployment (Alternative):**
+   - Go to your app settings in Streamlit Cloud Dashboard
    - Click on "Secrets" in the sidebar
    - Add your secrets in TOML format:
    ```toml
    OPENAI_API_KEY = "your_openai_api_key_here"
    ```
 
-2. **Alternative Method - Using Streamlit Secrets:**
+3. **Local Development (Optional):**
    - Create a file named `.streamlit/secrets.toml` (locally only, don't commit)
    - Add your secrets:
    ```toml
@@ -90,9 +103,17 @@ Since you can't upload `.env` files to GitHub, you need to configure secrets in 
 
 ### Step 4: Verify Deployment
 
-1. Wait for the app to build and deploy
-2. Test the chat functionality
-3. Check that the API key validation works
+1. Wait for the app to build and deploy (this may take a few minutes)
+2. Once deployed, you should see the **GPT-4o-mini Chat Interface** with:
+   - A sidebar showing "Settings" with API key validation status
+   - "Chat Statistics" showing total messages
+   - "Instructions" for using the app
+   - A main chat area with input box and "Send" button
+3. Test the functionality:
+   - Verify the API key shows as "✅ API Key is valid"
+   - Try sending a test message to ensure the chat works
+   - Check that responses stream in real-time
+4. Your app will be available at the generated Streamlit URL
 
 ## Environment Variables
 
@@ -103,14 +124,10 @@ Since you can't upload `.env` files to GitHub, you need to configure secrets in 
 ## File Structure
 
 ```
-5_MLOps/Streamlit/
-├── app.py                 # Main Streamlit application
-├── requirements.txt       # Python dependencies
-├── env.example           # Environment variables template
-├── .gitignore           # Git ignore rules
-├── README.md            # This file
-└── .streamlit/
-    └── config.toml      # Streamlit configuration
+Streamlit/
+├── streamlit_app.py      # Main Streamlit application
+├── requirements.txt      # Python dependencies
+└── README.md            # This file
 ```
 
 ## Restrictions and Considerations
