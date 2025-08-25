@@ -121,7 +121,7 @@ def main():
     initialize_session_state()
     
     # Header
-    st.title("🤖 GPT-4o-mini Chat Interface1")
+    st.title("🤖 GPT-4o-mini Chat Interface")
     st.markdown("Chat with OpenAI's GPT-4o-mini model in real-time!")
     
     # Sidebar
